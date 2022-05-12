@@ -23,9 +23,11 @@ class OnboardingContainerViewController: UIViewController {
         let page2 = ViewController2()
         let page3 = ViewController3()
         
+        
         pages.append(page1)
         pages.append(page2)
         pages.append(page3)
+        
         
         currentVC = pages.first!
         
@@ -113,5 +115,14 @@ class ViewController3: UIViewController {
         view.backgroundColor = .systemBlue
     }
 }
+
+class ViewController4: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemGray3
+    }
+}
+
+
 
 
