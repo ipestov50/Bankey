@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		960F2B72282CDD8A002E2065 /* OnboardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960F2B71282CDD8A002E2065 /* OnboardingContainerViewController.swift */; };
 		96813466282C2FCD008C302D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96813465282C2FCD008C302D /* AppDelegate.swift */; };
 		9681346A282C2FCD008C302D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96813469282C2FCD008C302D /* LoginViewController.swift */; };
 		9681346F282C2FCF008C302D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9681346E282C2FCF008C302D /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		960F2B71282CDD8A002E2065 /* OnboardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewController.swift; sourceTree = "<group>"; };
 		96813462282C2FCD008C302D /* Bankey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bankey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96813465282C2FCD008C302D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96813469282C2FCD008C302D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -35,10 +37,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		960F2B70282CDD4C002E2065 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				960F2B71282CDD8A002E2065 /* OnboardingContainerViewController.swift */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
 		96813459282C2FCD008C302D = {
 			isa = PBXGroup;
 			children = (
 				96813464282C2FCD008C302D /* Bankey */,
+				9681347A282C319A008C302D /* Login */,
 				96813463282C2FCD008C302D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,8 +65,8 @@
 		96813464282C2FCD008C302D /* Bankey */ = {
 			isa = PBXGroup;
 			children = (
+				960F2B70282CDD4C002E2065 /* Onboarding */,
 				96813479282C3155008C302D /* Files */,
-				9681347A282C319A008C302D /* Login */,
 				96813465282C2FCD008C302D /* AppDelegate.swift */,
 			);
 			path = Bankey;
@@ -78,6 +89,7 @@
 				9681347B282C31C0008C302D /* LoginView.swift */,
 			);
 			name = Login;
+			path = Bankey;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +165,7 @@
 				9681347C282C31C0008C302D /* LoginView.swift in Sources */,
 				9681346A282C2FCD008C302D /* LoginViewController.swift in Sources */,
 				96813466282C2FCD008C302D /* AppDelegate.swift in Sources */,
+				960F2B72282CDD8A002E2065 /* OnboardingContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
