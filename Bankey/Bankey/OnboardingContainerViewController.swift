@@ -7,14 +7,30 @@
 
 import UIKit
 
-class OnboardingContainerViewController: UIViewController {
+protocol OnboardingContainerViewControllerDelegate: AnyObject {
+    func didFinishOnboarding() 
+}
 
+class OnboardingContainerViewController: UIViewController {
+    
     let pageViewController: UIPageViewController
     var pages = [UIViewController]()
+    weak var delegate: OnboardingContainerViewControllerDelegate?
+    
     var currentVC: UIViewController {
         didSet {
+            guard let index = pages.firstIndex(of: currentVC) else { return }
+            nextButton.isHidden = index == pages.count - 1 // hide if on last page
+            backButton.isHidden = index == 0
+            doneButton.isHidden = !(index == pages.count - 1) // show if on last page
         }
     }
+    let closeButton = UIButton(type: .system)
+    let nextButton = UIButton(type: .system)
+    let backButton = UIButton(type: .system)
+    let doneButton = UIButton(type: .system)
+    
+        
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -23,11 +39,9 @@ class OnboardingContainerViewController: UIViewController {
         let page2 = OnboardingViewController(heroImageName: "world", titleText: "Move your money around thw world quickly and securely.")
         let page3 = OnboardingViewController(heroImageName: "thumbs", titleText: "Learn more at www.bankey.com")
         
-        
         pages.append(page1)
         pages.append(page2)
         pages.append(page3)
-        
         
         currentVC = pages.first!
         
@@ -41,6 +55,12 @@ class OnboardingContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setup()
+        style()
+        layout()
+    }
+    
+    private func setup() {
         view.backgroundColor = .systemPurple
         
         addChild(pageViewController)
@@ -59,6 +79,55 @@ class OnboardingContainerViewController: UIViewController {
         
         pageViewController.setViewControllers([pages.first!], direction: .forward, animated: false, completion: nil)
         currentVC = pages.first!
+    }
+    
+    private func style() {
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        closeButton.setTitle("Close", for: [])
+        closeButton.addTarget(self, action: #selector(closeTapped), for: .primaryActionTriggered)
+        
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.setTitle("Next", for: [])
+        nextButton.addTarget(self, action: #selector(nextTapped), for: .primaryActionTriggered)
+        
+        
+        doneButton.translatesAutoresizingMaskIntoConstraints = false
+        doneButton.setTitle("Done", for: [])
+        doneButton.addTarget(self, action: #selector(doneTapped), for: .primaryActionTriggered)
+        
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.setTitle("Back", for: [])
+        
+        
+        view.addSubview(closeButton)
+        view.addSubview(nextButton)
+        view.addSubview(doneButton)
+        view.addSubview(backButton)
+    }
+    
+    private func layout() {
+        // Close Button
+        NSLayoutConstraint.activate([
+            closeButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            closeButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
+        ])
+        // Next Button
+        NSLayoutConstraint.activate([
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: nextButton.trailingAnchor, multiplier: 2),
+            view.bottomAnchor.constraint(equalToSystemSpacingBelow: nextButton.bottomAnchor, multiplier: 4)
+        ])
+        
+        // Done Button
+        NSLayoutConstraint.activate([
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: doneButton.trailingAnchor, multiplier: 2),
+            view.bottomAnchor.constraint(equalToSystemSpacingBelow: doneButton.bottomAnchor, multiplier: 4)
+        ])
+        
+        // Back Button
+        NSLayoutConstraint.activate([
+            backButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            view.bottomAnchor.constraint(equalToSystemSpacingBelow: backButton.bottomAnchor, multiplier: 4)
+        ])
     }
 }
 
@@ -94,7 +163,21 @@ extension OnboardingContainerViewController: UIPageViewControllerDataSource {
     }
 }
 
-
+// MARK: - Actions
+extension OnboardingContainerViewController {
+    @objc func closeTapped(_ sender: UIButton) {
+        // TODO
+        delegate?.didFinishOnboarding()
+    }
+    
+    @objc func doneTapped(_ sender: UIButton) {
+        delegate?.didFinishOnboarding()
+    }
+    
+    @objc func nextTapped() {
+        print("f")
+    }
+}
 
 
 
