@@ -10,7 +10,7 @@ import Foundation
 public class LocalState {
     
     private enum Keys: String {
-        case hasOnboarded // ( актуальное значение ) 
+        case hasOnboarded // ( актуальное значение )
     }
     
     public static var hasOnboarded: Bool {
