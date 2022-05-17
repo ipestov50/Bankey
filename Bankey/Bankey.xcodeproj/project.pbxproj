@@ -23,6 +23,8 @@
 		968A51DF282F8FE7007437FF /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A51DE282F8FE7007437FF /* UIViewController+Utils.swift */; };
 		968A51E1282F90FD007437FF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A51E0282F90FD007437FF /* MainViewController.swift */; };
 		96A051222833931C00886173 /* CurrencyFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A051212833931C00886173 /* CurrencyFormatterTest.swift */; };
+		96A05124283402A900886173 /* NSNotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A05123283402A900886173 /* NSNotificationName.swift */; };
+		96A051262834047800886173 /* UITextField+SecureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A051252834047800886173 /* UITextField+SecureToggle.swift */; };
 		96A196F1282E397F00B5A4A7 /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A196F0282E397F00B5A4A7 /* DummyViewController.swift */; };
 		96A196F4282E82A800B5A4A7 /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A196F3282E82A800B5A4A7 /* LocalState.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,8 @@
 		968A51E0282F90FD007437FF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		96A051182833927C00886173 /* BankeyUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankeyUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96A051212833931C00886173 /* CurrencyFormatterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatterTest.swift; sourceTree = "<group>"; };
+		96A05123283402A900886173 /* NSNotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotificationName.swift; sourceTree = "<group>"; };
+		96A051252834047800886173 /* UITextField+SecureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+SecureToggle.swift"; sourceTree = "<group>"; };
 		96A196F0282E397F00B5A4A7 /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		96A196F3282E82A800B5A4A7 /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,8 +156,8 @@
 		9681347A282C319A008C302D /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				96813469282C2FCD008C302D /* LoginViewController.swift */,
 				9681347B282C31C0008C302D /* LoginView.swift */,
+				96813469282C2FCD008C302D /* LoginViewController.swift */,
 				96A196F0282E397F00B5A4A7 /* DummyViewController.swift */,
 			);
 			name = Login;
@@ -181,10 +185,12 @@
 		96A196F2282E829B00B5A4A7 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				96A196F3282E82A800B5A4A7 /* LocalState.swift */,
-				968A51DE282F8FE7007437FF /* UIViewController+Utils.swift */,
+				96A051252834047800886173 /* UITextField+SecureToggle.swift */,
 				9616291E2832CB84009B4039 /* DecimalUtils.swift */,
+				968A51DE282F8FE7007437FF /* UIViewController+Utils.swift */,
+				96A196F3282E82A800B5A4A7 /* LocalState.swift */,
 				961629202832CBC4009B4039 /* CurrencyFormatter.swift */,
+				96A05123283402A900886173 /* NSNotificationName.swift */,
 			);
 			name = Util;
 			path = Bankey;
@@ -296,9 +302,11 @@
 				9681347C282C31C0008C302D /* LoginView.swift in Sources */,
 				96A196F4282E82A800B5A4A7 /* LocalState.swift in Sources */,
 				968058772832028400BDF569 /* AccountSummaryHeaderView.swift in Sources */,
+				96A051262834047800886173 /* UITextField+SecureToggle.swift in Sources */,
 				96A196F1282E397F00B5A4A7 /* DummyViewController.swift in Sources */,
 				961629212832CBC4009B4039 /* CurrencyFormatter.swift in Sources */,
 				9616291F2832CB84009B4039 /* DecimalUtils.swift in Sources */,
+				96A05124283402A900886173 /* NSNotificationName.swift in Sources */,
 				9681346A282C2FCD008C302D /* LoginViewController.swift in Sources */,
 				9680587D28321C7100BDF569 /* AccountSummaryCell.swift in Sources */,
 				960F2B74282D45C5002E2065 /* OnboardingViewController.swift in Sources */,
