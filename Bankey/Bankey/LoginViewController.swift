@@ -155,12 +155,12 @@ extension LoginViewController {
             return
         }
 
-//        if username.isEmpty || password.isEmpty {
-//            configureView(withMessage: "Username / password cannot be blank")
-//            return
-//        }
+        if username.isEmpty || password.isEmpty {
+            configureView(withMessage: "Username / password cannot be blank")
+            return
+        }
         
-        if username == "" && password == "" {
+        if username == "Flynn" && password == "Welcome" {
             print("Welcome!")
             signInButton.configuration?.showsActivityIndicator = true
             delegate?.didLogin()
@@ -172,6 +172,18 @@ extension LoginViewController {
     private func configureView(withMessage message: String) {
         errorMessageLabel.isHidden = false
         errorMessageLabel.text = message
+        shakeButton()
+    }
+    
+    private func shakeButton() {
+        let animation = CAKeyframeAnimation()
+        animation.keyPath = "position.x"
+        animation.values = [0, 10, -10, 10, 0] // x positions
+        animation.keyTimes = [0, 0.16, 0.5, 0.83, 1] // key frame timings
+        animation.duration = 0.4
+        
+        animation.isAdditive = true
+        signInButton.layer.add(animation, forKey: "shake")
     }
 }
 
@@ -179,7 +191,7 @@ extension LoginViewController {
 
 extension LoginViewController {
     private func animate() {
-        let durarion = 1.0
+        let durarion = 0.8
         
         let animator1 = UIViewPropertyAnimator(duration: durarion, curve: .easeInOut) {
             self.titleLeadingAnchor?.constant = self.leadingEdgeOnScreen
@@ -191,13 +203,13 @@ extension LoginViewController {
             self.subtitleLeadingAnchor?.constant = self.leadingEdgeOnScreen
             self.view.layoutIfNeeded()
         }
-        animator2.startAnimation(afterDelay: 0.5)
+        animator2.startAnimation(afterDelay: 1)
         
         let animator3 = UIViewPropertyAnimator(duration: durarion * 2, curve: .easeInOut) {
             self.titleLabel.alpha = 1
             self.subtitleLabel.alpha = 1
             self.view.layoutIfNeeded()
         }
-        animator3.startAnimation(afterDelay: 0.5)
+        animator3.startAnimation(afterDelay: 1)
     }
 }
