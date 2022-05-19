@@ -19,7 +19,7 @@ struct Profile: Codable {
     let lastName: String
     
     enum CodingKeys: String, CodingKey {
-        case id
+        case id 
         case firstName = "first_name"
         case lastName = "last_name"
     }
@@ -65,7 +65,6 @@ extension AccountSummaryViewController {
                     completion(.failure(.serverError))
                     return
                 }
-                
                 do {
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .iso8601
