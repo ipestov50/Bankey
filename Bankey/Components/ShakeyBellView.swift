@@ -51,6 +51,7 @@ extension ShakeyBellView {
         buttonView.layer.cornerRadius = buttonHeight/2
         buttonView.setTitle("9", for: .normal)
         buttonView.setTitleColor(.white, for: .normal)
+        buttonView.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
     func layout() {
@@ -75,7 +76,6 @@ extension ShakeyBellView {
     }
 }
 
-// MARK: - Actions
 // MARK: - Actions
 extension ShakeyBellView {
     @objc func imageViewTapped(_ recognizer: UITapGestureRecognizer) {
@@ -113,6 +113,49 @@ extension ShakeyBellView {
             UIView.addKeyframe(withRelativeStartTime: frameDuration*5,
                                relativeDuration: frameDuration) {
                 self.imageView.transform = CGAffineTransform.identity
+            }
+          },
+          completion: nil
+        )
+    }
+}
+
+extension ShakeyBellView {
+    @objc func buttonTapped(sender: UIButton) {
+        buttonShakeWith(duration: 0.7, angle: .pi/8, yOffset: 0.0)
+    }
+    
+    private func buttonShakeWith(duration: Double, angle: CGFloat, yOffset: CGFloat) {
+        let numberOfFrames: Double = 6
+        let frameDuration = Double(1/numberOfFrames)
+        
+        buttonView.setAnchorPoint(CGPoint(x: 0.5, y: yOffset))
+
+        UIView.animateKeyframes(withDuration: duration, delay: 0, options: [],
+          animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.0,
+                               relativeDuration: frameDuration) {
+                self.buttonView.transform = CGAffineTransform(rotationAngle: -angle)
+            }
+            UIView.addKeyframe(withRelativeStartTime: frameDuration,
+                               relativeDuration: frameDuration) {
+                self.buttonView.transform = CGAffineTransform(rotationAngle: +angle)
+            }
+            UIView.addKeyframe(withRelativeStartTime: frameDuration*2,
+                               relativeDuration: frameDuration) {
+                self.buttonView.transform = CGAffineTransform(rotationAngle: -angle)
+            }
+            UIView.addKeyframe(withRelativeStartTime: frameDuration*3,
+                               relativeDuration: frameDuration) {
+                self.buttonView.transform = CGAffineTransform(rotationAngle: +angle)
+            }
+            UIView.addKeyframe(withRelativeStartTime: frameDuration*4,
+                               relativeDuration: frameDuration) {
+                self.buttonView.transform = CGAffineTransform(rotationAngle: -angle)
+            }
+            UIView.addKeyframe(withRelativeStartTime: frameDuration*5,
+                               relativeDuration: frameDuration) {
+                self.buttonView.transform = CGAffineTransform.identity
             }
           },
           completion: nil
