@@ -10,7 +10,7 @@ import Foundation
 extension Date {
     static var bankeyDateFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.timeZone = TimeZone(abbreviation: "UTC")
+        formatter.timeZone = TimeZone(abbreviation: "en_US_POSIX")
         return formatter
     }
     
@@ -18,5 +18,6 @@ extension Date {
         let dateFormatter = Date.bankeyDateFormatter
         dateFormatter.dateFormat = "MMM d, yyyy"
         return dateFormatter.string(from: self)
+//        return formatted(.dateTime.month().year())
     }
 }
