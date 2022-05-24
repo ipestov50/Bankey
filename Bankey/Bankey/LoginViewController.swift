@@ -46,16 +46,24 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         style()
         layout()
+        print("viewDidLoad")
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) { // метод viewDidDisappear вызывается после того, как MVC полностью вышел с экрана.
         super.viewDidDisappear(animated)
         signInButton.configuration?.showsActivityIndicator = false
+//        print("viewDidDisappear")
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) { // метод viewDidAppear вызывается в момент, когда View уже появился на экране. Вызывается только один раз и только когда мы уже на экране.
         super.viewDidAppear(animated)
         animate()
+//        print("viewDidAppear")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) { // Мы можем использовать этот метод, чтобы узнать что изменилось во View, когда мы были вне его.
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
     }
 }
 

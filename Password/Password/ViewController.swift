@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     let stackView = UIStackView()
     let newPasswordTextField = PasswordTextField(placeHolderText: "New password") // #1 example of how we can pass data between viewcontrollers
-    
+    let criteriaView = PaswordCriteriaView(text: "uppercase letter (A-Z)")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +32,13 @@ extension ViewController {
         // New Password Text Field
         newPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
         
+        // Password Criteria View
+        criteriaView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func layout() {
-        stackView.addArrangedSubview(newPasswordTextField)
+//        stackView.addArrangedSubview(newPasswordTextField)
+        stackView.addArrangedSubview(criteriaView)
         
         view.addSubview(stackView)
         
@@ -49,9 +52,9 @@ extension ViewController {
         
         // New Password Text Field
         NSLayoutConstraint.activate([
-            newPasswordTextField.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: newPasswordTextField.trailingAnchor, multiplier: 1),
-            newPasswordTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
         
     }
