@@ -12,7 +12,9 @@ class ViewController: UIViewController {
     
     let stackView = UIStackView()
     let newPasswordTextField = PasswordTextField(placeHolderText: "New password") // #1 example of how we can pass data between viewcontrollers
-    let criteriaView = PaswordCriteriaView(text: "uppercase letter (A-Z)")
+    let statusView = PasswordStatusView()
+    let confirmPasswordTextField = PasswordTextField(placeHolderText: "Re-enter new password")
+    let resetButton = UIButton(type: .system)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +35,28 @@ extension ViewController {
         newPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
         
         // Password Criteria View
-        criteriaView.translatesAutoresizingMaskIntoConstraints = false
+//        criteriaView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Password Status View
+        statusView.translatesAutoresizingMaskIntoConstraints = false
+        statusView.layer.cornerRadius = 5
+        statusView.clipsToBounds = true
+        
+        // Confirm Password Text Field
+        confirmPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Reset Button
+        resetButton.translatesAutoresizingMaskIntoConstraints = false
+        resetButton.configuration = .filled()
+        resetButton.setTitle("Reset password", for: [])
+//        resetButton.addTarget(self, action: #selector(resetPasswordButtonTapped), for: .primaryActionTriggered)
     }
     
     func layout() {
-//        stackView.addArrangedSubview(newPasswordTextField)
-        stackView.addArrangedSubview(criteriaView)
+        stackView.addArrangedSubview(newPasswordTextField)
+        stackView.addArrangedSubview(statusView)
+        stackView.addArrangedSubview(confirmPasswordTextField)
+        stackView.addArrangedSubview(resetButton)
         
         view.addSubview(stackView)
         

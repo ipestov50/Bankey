@@ -13,6 +13,7 @@
 		968B972A283B44470063DD33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 968B9729283B44470063DD33 /* Assets.xcassets */; };
 		968B972D283B44470063DD33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968B972B283B44470063DD33 /* LaunchScreen.storyboard */; };
 		968B9737283B49EA0063DD33 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968B9736283B49EA0063DD33 /* PasswordTextField.swift */; };
+		96B2C1F2283E598C0058943B /* PasswordStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B2C1F1283E598C0058943B /* PasswordStatusView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		968B972C283B44470063DD33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		968B972E283B44470063DD33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		968B9736283B49EA0063DD33 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		96B2C1F1283E598C0058943B /* PasswordStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStatusView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,7 @@
 			isa = PBXGroup;
 			children = (
 				962BACE1283D3AEE0094B93C /* PaswordCriteriaView.swift */,
+				96B2C1F1283E598C0058943B /* PasswordStatusView.swift */,
 			);
 			name = PasswordStatusView;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 				968B9725283B44430063DD33 /* ViewController.swift in Sources */,
 				968B9721283B44430063DD33 /* AppDelegate.swift in Sources */,
 				962BACE2283D3AEE0094B93C /* PaswordCriteriaView.swift in Sources */,
+				96B2C1F2283E598C0058943B /* PasswordStatusView.swift in Sources */,
 				968B9737283B49EA0063DD33 /* PasswordTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

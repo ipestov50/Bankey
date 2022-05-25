@@ -7,7 +7,7 @@
 import Foundation
 import UIKit
 
-class PaswordCriteriaView: UIView {
+class PasswordCriteriaView: UIView {
     
     let stackView = UIStackView()
     let imageView = UIImageView()
@@ -51,7 +51,7 @@ class PaswordCriteriaView: UIView {
     }
 }
 
-extension PaswordCriteriaView {
+extension PasswordCriteriaView {
     
     func style() {
         translatesAutoresizingMaskIntoConstraints = false
