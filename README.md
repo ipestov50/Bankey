@@ -1,6 +1,6 @@
 # ios-professional
 
-# Начальный экран -> Login View
+# Начальный экран Login View Controller
 <img width="392" alt="НачальныйЭкран" src="https://user-images.githubusercontent.com/105271727/169967216-9454c548-31ea-4dce-bc2a-282e7cd479c5.png">
 
 Использовано: 
