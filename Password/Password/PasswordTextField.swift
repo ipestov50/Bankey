@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+protocol PasswordTextFieldDelegate: AnyObject {
+    func editingChanged(_ sender: PasswordTextField)
+}
+
 class PasswordTextField: UIView {
     
     let lockImageView = UIImageView(image: UIImage(systemName: "lock.fill"))
@@ -16,6 +20,8 @@ class PasswordTextField: UIView {
     let eyeButton = UIButton(type: .custom)
     let dividerView = UIView()
     let errorLabel = UILabel()
+    
+    weak var delegate: PasswordTextFieldDelegate? // weak to avoid retain cycle
     
     init(placeHolderText: String) { // #1 example of how we can pass data between viewcontrollers ( create custom init )
         self.placeHolderText = placeHolderText
@@ -48,11 +54,14 @@ extension PasswordTextField {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.isSecureTextEntry = false
         textField.placeholder = placeHolderText
-        // textField.delegate = self
+        textField.delegate = self
         textField.keyboardType = .asciiCapable
         textField.attributedPlaceholder = NSAttributedString(string: placeHolderText,
                                                              attributes: [NSAttributedString.Key
                                                                          .foregroundColor: UIColor.secondaryLabel]) // This is how we set the color on the placeHolderText
+        
+        // extra interaction
+        textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
         
         // Eye Button
         eyeButton.translatesAutoresizingMaskIntoConstraints = false
@@ -72,7 +81,7 @@ extension PasswordTextField {
         errorLabel.numberOfLines = 0
         errorLabel.lineBreakMode = .byWordWrapping
         
-        errorLabel.isHidden = false // true
+        errorLabel.isHidden = true // true
         
     }
     
@@ -131,4 +140,13 @@ extension PasswordTextField {
         textField.isSecureTextEntry.toggle()
         eyeButton.isSelected.toggle()
     }
+    
+    @objc func textFieldEditingChanged(_ sender: UITextField) {
+        delegate?.editingChanged(self)
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension PasswordTextField: UITextFieldDelegate {
+    
 }

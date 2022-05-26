@@ -33,7 +33,7 @@ extension ViewController {
         
         // New Password Text Field
         newPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
-        
+        newPasswordTextField.delegate = self
         // Password Criteria View
 //        criteriaView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -78,3 +78,13 @@ extension ViewController {
     }
 }
 
+// MARK: - PasswordTextFieldDelegate
+extension ViewController: PasswordTextFieldDelegate {
+    func editingChanged(_ sender: PasswordTextField) {
+        if sender == newPasswordTextField {
+            statusView.updateDisplay(sender.textField.text ?? "")
+        }
+    }
+    
+    
+}
